@@ -36,6 +36,7 @@
                tableRow.append(direccion);
                tableRow.append(usuario);
                tableRow.append(ciudad);
+               tableRow.append(acciones);
                
                $('#tablaResidencias table tbody').append(tableRow);
            }
