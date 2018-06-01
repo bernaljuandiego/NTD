@@ -1,0 +1,29 @@
+<div id="tablaEstudiantes">
+    <table class="table table-striped">
+        <thead>
+        <th>Nombre Producto</th>
+        <th>Valor Producto</th>
+        <th>Garantia Producto</th>
+        <th>Nombre Tipo Producto</th>
+        <th>Descripcion Tipo Producto</th>           
+        <th>Nombre Marca</th>
+        </thead>
+        
+        <tbody>
+            <tr ng-repeat="pro in productos">
+                <td>{{pro.nomProducto}}</td>
+                <td>{{pro.valorUnitario}}</td>
+                <td>{{pro.garantia}}</td>
+                <td>{{pro.stockDisponible}}</td>
+                <td>{{pro.tipoProducto.nomTipoProducto}}</td>
+                <td>{{pro.tipoProducto.descripcion}}</td>
+                <td>{{pro.marca.nomMarca}}</td>
+                <td>{{pro.proveedor.NombreEmpresa}}</td>
+                <td>
+                     <button class="btn btn-primary" ui-sref="editarProducto({id:pro.id})">Actualizar</button>
+                    <button class="btn btn-danger" ng-click="eliminar(pro.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
