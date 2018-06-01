@@ -67,14 +67,14 @@ public class UsuarioEntity implements Serializable {
      * Relacion muchos a uno con la tabla de tipo de identificacion - tipo_id
      */
     @ManyToOne
-    @JoinColumn(name = "cod_tipo_documento")
+    @JoinColumn(name = "cod_tipo_documento" , nullable = true)
     private TipoDocumentoEntity tipoDocumento;
     /**
      * Relacion muchos a uno con la tabla de rol de usuario - Rol
      */
     
     @ManyToOne
-    @JoinColumn(name ="cod_rol")
+    @JoinColumn(name ="cod_rol" , nullable = true)
     private RolEntity rol;
 
  
