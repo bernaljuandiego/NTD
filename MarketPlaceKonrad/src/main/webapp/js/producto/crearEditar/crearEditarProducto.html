@@ -1,0 +1,33 @@
+<div>
+    <div class="form-group">
+        <label class="control-label">Nombre Producto</label>
+        <input class="form-control" ng-model="producto.nomProducto" id="nombre" type="text" placeholder="Nombre Producto"/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Valor Unitario</label>
+        <input class="form-control" ng-model="producto.valorUnitario" id="valor" type="text" placeholder="Valor unitario"/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Garantia Producto</label>
+        <input class="form-control" ng-model="producto.garantia" id="garantia" type="text" placeholder="Garantia producto"/>
+    </div>
+   <div class="form-group">
+        <label class="control-label">Stocks disponibles</label>
+        <input class="form-control" ng-model="producto.stockDisponible" id="stocks" type="text" placeholder="Stocks disponibles"/>
+    </div>
+       <div class="form-group">
+        <label class="control-label">Codigo Tipo Producto</label>
+        <input class="form-control" ng-model="producto.tipoProducto.codTipoProducto" id="codigo_tip_producto"  placeholder="Codigo tipo producto"/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Codigo Marca</label>
+        <input class="form-control" ng-model="producto.marca.codMarca" id="codigo_marca"  placeholder="Codigo marca"/>
+    </div>
+        <div class="form-group">
+        <label class="control-label">Nit proveedor</label>
+        <input class="form-control" ng-model="producto.proveedor.nitProovedor" id="correo" type="text" placeholder="Nit Proveedor"/>
+    </div>
+    
+    <button class="btn btn-dark" id="crearBoton" ng-if="!producto.id" ng-click="crearProducto()">Crear Producto</button>    
+    <button class="btn btn-dark" id="crearBoton" ng-if="producto.id" ng-click="editarProducto()">Actualizar Producto</button> 
+</div>
