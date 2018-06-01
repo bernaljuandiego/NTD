@@ -14,31 +14,31 @@
 
     if (getUrlParameter('id')) {
         $.ajax({
-            url: '/MarketPlaceKonrad/api/Roles/' + getUrlParameter('id'),
+            url: '/MarketPlaceKonrad/api/Paises/' + getUrlParameter('id'),
             contentType: 'application/json',
             method: 'GET',
             dataType: 'json'
         }).done(function (data) {
-            var nombre = $('#nombre').val(data.nombreRol);
+            var nombre = $('#nombre').val(data.nombrePais);
             
 
-            var id = data.idRol;
+            var id = data.codPais;
 
-            $('#botonCrear').text('Actualizar Rol').click(function (event) {
+            $('#botonCrear').text('Actualizar Pais').click(function (event) {
                 var nombre = $('#nombre').val();
                
 
                 $.ajax({
-                    url: '/MarketPlaceKonrad/api/Roles/' + id,
+                    url: '/MarketPlaceKonrad/api/Paises/' + id,
                     contentType: 'application/json',
                     data: JSON.stringify({
-                        nombreRol: nombre,
-                        idRol: id
+                        nombrePais : nombre,
+                        codPais: id
                     }),
                     method: 'PUT',
                     dataType: 'json'
                 }).done(function (data) {
-                    window.location.href = '/MarketPlaceKonrad/rol.html';
+                    window.location.href = '/MarketPlaceKonrad/pais.html';
                 }).fail(function (xhr, status, error) {
                     console.log(error);
                 });
@@ -51,16 +51,16 @@
             var nombre = $('#nombre').val();
             
             $.ajax({
-                url: '/MarketPlaceKonrad/api/Roles',
+                url: '/MarketPlaceKonrad/api/Paises',
                 contentType: 'application/json',
                 data: JSON.stringify({
-                    nombreRol: nombre
+                    nombrePais: nombre
                    
                 }),
                 method: 'POST',
                 dataType: 'json'
             }).done(function (data) {
-                window.location.href = '/MarketPlaceKonrad/rol.html';
+                window.location.href = '/MarketPlaceKonrad/pais.html';
             }).fail(function (xhr, status, error) {
                 console.log(error);
             });
@@ -69,4 +69,5 @@
 
 
 })(jQuery);
+
 

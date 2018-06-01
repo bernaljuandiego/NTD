@@ -14,31 +14,31 @@
 
     if (getUrlParameter('id')) {
         $.ajax({
-            url: '/MarketPlaceKonrad/api/Roles/' + getUrlParameter('id'),
+            url: '/MarketPlaceKonrad/api/TiposDocumento/' + getUrlParameter('id'),
             contentType: 'application/json',
             method: 'GET',
             dataType: 'json'
         }).done(function (data) {
-            var nombre = $('#nombre').val(data.nombreRol);
+            var nombre = $('#nombre').val(data.nomTipoId);
             
 
-            var id = data.idRol;
+            var id = data.idtipo;
 
-            $('#botonCrear').text('Actualizar Rol').click(function (event) {
+            $('#botonCrear').text('Actualizar tipo de documento').click(function (event) {
                 var nombre = $('#nombre').val();
                
 
                 $.ajax({
-                    url: '/MarketPlaceKonrad/api/Roles/' + id,
+                    url: '/MarketPlaceKonrad/api/TiposDocumento/' + id,
                     contentType: 'application/json',
                     data: JSON.stringify({
-                        nombreRol: nombre,
-                        idRol: id
+                        nomTipoId: nombre,
+                        idtipo: id
                     }),
                     method: 'PUT',
                     dataType: 'json'
                 }).done(function (data) {
-                    window.location.href = '/MarketPlaceKonrad/rol.html';
+                    window.location.href = '/MarketPlaceKonrad/tdocumento.html';
                 }).fail(function (xhr, status, error) {
                     console.log(error);
                 });
@@ -51,16 +51,16 @@
             var nombre = $('#nombre').val();
             
             $.ajax({
-                url: '/MarketPlaceKonrad/api/Roles',
+                url: '/MarketPlaceKonrad/api/TiposDocumento',
                 contentType: 'application/json',
                 data: JSON.stringify({
-                    nombreRol: nombre
+                    nomTipoId: nombre
                    
                 }),
                 method: 'POST',
                 dataType: 'json'
             }).done(function (data) {
-                window.location.href = '/MarketPlaceKonrad/rol.html';
+                window.location.href = '/MarketPlaceKonrad/TiposDocumento.html';
             }).fail(function (xhr, status, error) {
                 console.log(error);
             });

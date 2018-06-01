@@ -14,31 +14,34 @@
 
     if (getUrlParameter('id')) {
         $.ajax({
-            url: '/MarketPlaceKonrad/api/Roles/' + getUrlParameter('id'),
+            url: '/MarketPlaceKonrad/api/ciudades/' + getUrlParameter('id'),
             contentType: 'application/json',
             method: 'GET',
             dataType: 'json'
         }).done(function (data) {
-            var nombre = $('#nombre').val(data.nombreRol);
+            var ciudad = $('#ciudad').val(data.nomCiudad);
+            var pais = $('#pais').val(data.pais);
             
 
-            var id = data.idRol;
+            var id = data.codCiudad;
 
-            $('#botonCrear').text('Actualizar Rol').click(function (event) {
-                var nombre = $('#nombre').val();
+            $('#botonCrear').text('Actualizar Ciudad').click(function (event) {
+                var ciudad = $('#ciudad').val();
+                var pais = $('#pais').val();
                
 
                 $.ajax({
-                    url: '/MarketPlaceKonrad/api/Roles/' + id,
+                    url: '/MarketPlaceKonrad/api/ciudades/' + id,
                     contentType: 'application/json',
                     data: JSON.stringify({
-                        nombreRol: nombre,
-                        idRol: id
+                        nomCiudad : ciudad,
+                        pais : pais ,
+                        codCiudad: id
                     }),
                     method: 'PUT',
                     dataType: 'json'
                 }).done(function (data) {
-                    window.location.href = '/MarketPlaceKonrad/rol.html';
+                    window.location.href = '/MarketPlaceKonrad/ciudad.html';
                 }).fail(function (xhr, status, error) {
                     console.log(error);
                 });
@@ -48,19 +51,21 @@
         });
     } else {
         $('#botonCrear').click(function (event) {
-            var nombre = $('#nombre').val();
+            var ciudad = $('#ciudad').val();
+            var pais = $('#pais').val();
             
             $.ajax({
-                url: '/MarketPlaceKonrad/api/Roles',
+                url: '/MarketPlaceKonrad/api/ciudades',
                 contentType: 'application/json',
                 data: JSON.stringify({
-                    nombreRol: nombre
+                    nomCiudad: ciudad,
+                    pais : pais
                    
                 }),
                 method: 'POST',
                 dataType: 'json'
             }).done(function (data) {
-                window.location.href = '/MarketPlaceKonrad/rol.html';
+                window.location.href = '/MarketPlaceKonrad/ciudad.html';
             }).fail(function (xhr, status, error) {
                 console.log(error);
             });
@@ -69,4 +74,6 @@
 
 
 })(jQuery);
+
+
 
